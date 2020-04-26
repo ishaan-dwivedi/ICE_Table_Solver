@@ -6,6 +6,9 @@
 #include <cinder/app/App.h>
 #include <cinder/gl/wrapper.h>
 
+using namespace ci;
+
+
 namespace myapp {
 
 using cinder::app::KeyEvent;
@@ -13,14 +16,18 @@ using cinder::app::KeyEvent;
 MyApp::MyApp() { }
 
 void MyApp::setup() {
+  ui::initialize();
   ImGui::initialize();
 }
 
-void MyApp::update() { }
+void MyApp::update() {
+}
 
 void MyApp::draw() {
   cinder::gl::clear();
-  ImGui::Text("Hello, world!");
+  ImGui::InputText("Eq","Enter equation", 50);
+  ui::Button("Submit", vec2( 100.0f ));
+  //ui::InputText()
 }
 
 void MyApp::keyDown(KeyEvent event) { }
