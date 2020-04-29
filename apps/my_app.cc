@@ -8,6 +8,16 @@
 
 using namespace ci;
 
+struct Object {
+
+  vec2 getPosition() const { return mPosition; }
+  void setPosition( const ci::vec2& position ) { mPosition = position; }
+
+  std::string mName;
+  Color	mColor;
+  vec2	mPosition;
+  float	mSize;
+};
 
 namespace myapp {
 
@@ -25,8 +35,10 @@ void MyApp::update() {
 
 void MyApp::draw() {
   cinder::gl::clear();
+
   ImGui::InputText("Eq","Enter equation", 50);
   ui::Button("Submit", vec2( 100.0f ));
+
   //ui::InputText()
 }
 
