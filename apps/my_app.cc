@@ -29,7 +29,7 @@ MyApp::MyApp() { }
 void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
-  mylibrary::example dr("ui");
+  mylibrary::example dr("HNO3 -> NO3 + H+");
   dr.print("hi");
   dr.get_equation();
 }
@@ -44,7 +44,7 @@ void MyApp::draw() {
 
   ImGui::InputText("Eq","Enter equation", 50);
   ui::Button("Submit", vec2( 100.0f ));
-
+  ImGui::Text("pok");
   //ui::InputText()
 }
 
