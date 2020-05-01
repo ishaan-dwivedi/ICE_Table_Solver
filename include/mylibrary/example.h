@@ -18,7 +18,22 @@ namespace mylibrary {
        * Prints the given string
        * @param str
        */
-      void print(std::string str);
+      void Print(std::string str);
+
+      /**
+       * Should return the initial reactant and product concentrations
+       * from the given equation.
+       * @param given_equation
+       */
+      void ParseConcentrations(std::string given_equation);
+
+      /**
+       * Should return the coefficients that determines the proper factor
+       * of change in concentration from a given equation.
+       * @param given_equation
+       */
+      void ParseChangeInConcentrations(std::string given_equation);
+
 
       /**
        * Should output a solved ice table
@@ -42,9 +57,9 @@ namespace mylibrary {
        *
        * @param given_equation - equation to solve
        */
-      void solve(std::string given_equation);
+      void Solve(std::string given_equation);
 
-      void get_equation();
+      std::string GetEquation();
 
   };
 

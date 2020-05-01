@@ -30,8 +30,8 @@ void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
   mylibrary::example dr("HNO3 -> NO3 + H+");
-  dr.print("hi");
-  dr.get_equation();
+  dr.Print("hi");
+  dr.GetEquation();
 }
 
 void MyApp::update() {

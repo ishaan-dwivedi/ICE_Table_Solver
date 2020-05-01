@@ -4,20 +4,37 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cmath>
 
 namespace mylibrary {
 
 using std::string;
 
 
-  void example::get_equation() {
-    std::cout << example::equation;
+  std::string example::GetEquation() {
+    return example::equation;
   }
-  void example::print(string input) {
+
+  void example::Print(string input) {
     std::cout << "Text: " << input << std::endl;
   }
 
-  void example::solve(std::string given_equation) {
+  void example::Solve(std::string given_equation) {
+    // Vector that contains the reactant concentrations
+    std::vector<double> reactant_concentrations;
+    reactant_concentrations = {0.20};
+
+    // Vector that contains the product concentrations
+    std::vector<double> product_concentrations;
+    product_concentrations = {0.0, 0.0};
+
+    // Represents the value x shown in the Ice Table, also
+    // the change in concentration
+    double change;
+
+
+
 
   }
 }  // namespace mylibrary
