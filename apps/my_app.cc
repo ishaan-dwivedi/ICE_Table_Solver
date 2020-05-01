@@ -5,6 +5,7 @@
 #include <CinderImGui.h>
 #include <cinder/app/App.h>
 #include <cinder/gl/wrapper.h>
+#include <mylibrary/example.h>
 
 using namespace ci;
 
@@ -28,9 +29,14 @@ MyApp::MyApp() { }
 void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
+  mylibrary::example dr("ui");
+  dr.print("hi");
+  dr.get_equation();
 }
 
 void MyApp::update() {
+
+
 }
 
 void MyApp::draw() {
