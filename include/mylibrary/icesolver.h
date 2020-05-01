@@ -8,7 +8,7 @@ namespace mylibrary {
     private: std::string equation;
 
     // Should read in an equation as well as initial concentrations and a Ka
-    // value in order to solve an ICE Table.
+    // value in order to solve an Ice Table problem.
     public:
      IceSolver(std::string set_equation) {
       equation = set_equation;

@@ -24,14 +24,16 @@ namespace myapp {
 
 using cinder::app::KeyEvent;
 
+mylibrary::IceSolver sample_problem("HNO3 -> NO3 + H+");
+
+
 MyApp::MyApp() { }
 
 void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
-  mylibrary::IceSolver sample_problem("HNO3 -> NO3 + H+");
-  sample_problem.Print("hi");
-  sample_problem.GetEquation();
+  sample_problem.Solve("");
+
 }
 
 void MyApp::update() {
@@ -44,7 +46,8 @@ void MyApp::draw() {
 
   ImGui::InputText("Eq","Enter equation", 50);
   ui::Button("Submit", vec2( 100.0f ));
-  ImGui::Text("pok");
+  std::string eq = sample_problem.GetEquation();
+  ImGui::Text(eq.c_str());
   //ui::InputText()
 }
 
