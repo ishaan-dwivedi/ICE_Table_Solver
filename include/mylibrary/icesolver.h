@@ -4,44 +4,54 @@
 
 #include <string>
 namespace mylibrary {
-  class example {
+  class IceSolver {
     private: std::string equation;
 
-    public: example(std::string set_equation) {
+    // Should read in an equation as well as initial concentrations and a Ka
+    // value in order to solve an ICE Table.
+    public:
+     IceSolver(std::string set_equation) {
       equation = set_equation;
     }
 
-
-
     public:
-      /**
-       * Prints the given string
-       * @param str
-       */
-      void Print(std::string str);
-
       /**
        * Should return the initial reactant and product concentrations
        * from the given equation.
-       * @param given_equation
+       * @param given_equation - Given chemical equation
        */
       void ParseConcentrations(std::string given_equation);
 
       /**
        * Should return the coefficients that determines the proper factor
        * of change in concentration from a given equation.
-       * @param given_equation
+       * @param given_equation - Given chemical equation
        */
       void ParseChangeInConcentrations(std::string given_equation);
+
+      /**
+       * Should return the given Ka value from the input string
+       * @param given_equation - String that represents equation data
+       * @return Ka value that is given
+       */
+      double ParseKaValue(std::string given_equation);
+
+      /**
+       * Should return a possible root that satisfies a quadratic equation and
+       * the Ice Table
+       * @param given_equation - Quadratic equation given
+       * @return - A possible root
+       */
+      double SolveQuadratic(std::string given_equation);
 
 
       /**
        * Should output a solved ice table
        *
-       * ICE Table example:
+       * ICE Table icesolver:
        *
        * Equation: HC2H3O2 -> H+ + C2H3O2-
-       * This example uses an acid so a Ka expression is needed
+       * This icesolver uses an acid so a Ka expression is needed
        * Ka should be given or can be looked up
        *
        * Ka = ([H+][C2H3O2-]) / [HC2H3O2] = 1.8 * 10^-5

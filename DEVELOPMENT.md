@@ -8,7 +8,8 @@
 - **4/27/20** Tried creating a struct to better handle input
     from ImGui. Did not work well, decided to focus on the
     actual solving and be able to solve an Ice Table problem.
-    Will get back to the GUI input later.
+    Will get back to the GUI input later. May just take input
+    from a file and output via the GUI.
 ---
 - **4/23/20** Able to use the ImGui cinder block, but 
     the InputText method is not taking in and storing input.

@@ -1,26 +1,26 @@
 // Copyright (c) 2020 [Your Name]. All rights reserved.
 
-#include <mylibrary/example.h>
+#include <mylibrary/icesolver.h>
 
+#include <cmath>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cmath>
 
 namespace mylibrary {
 
 using std::string;
 
 
-  std::string example::GetEquation() {
-    return example::equation;
+  std::string IceSolver::GetEquation() {
+    return IceSolver::equation;
   }
 
-  void example::Print(string input) {
+  void IceSolver::Print(string input) {
     std::cout << "Text: " << input << std::endl;
   }
 
-  void example::Solve(std::string given_equation) {
+  void IceSolver::Solve(std::string given_equation) {
     // Vector that contains the reactant concentrations
     std::vector<double> reactant_concentrations;
     reactant_concentrations = {0.20};
@@ -32,6 +32,9 @@ using std::string;
     // Represents the value x shown in the Ice Table, also
     // the change in concentration
     double change;
+
+    double Ka = 0.000018;
+
 
 
 

@@ -5,7 +5,7 @@
 #include <CinderImGui.h>
 #include <cinder/app/App.h>
 #include <cinder/gl/wrapper.h>
-#include <mylibrary/example.h>
+#include <mylibrary/icesolver.h>
 
 using namespace ci;
 
@@ -29,9 +29,9 @@ MyApp::MyApp() { }
 void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
-  mylibrary::example dr("HNO3 -> NO3 + H+");
-  dr.Print("hi");
-  dr.GetEquation();
+  mylibrary::IceSolver sample_problem("HNO3 -> NO3 + H+");
+  sample_problem.Print("hi");
+  sample_problem.GetEquation();
 }
 
 void MyApp::update() {
