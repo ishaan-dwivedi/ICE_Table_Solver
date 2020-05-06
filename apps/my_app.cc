@@ -13,7 +13,7 @@ namespace myapp {
 
 using cinder::app::KeyEvent;
 
-mylibrary::IceSolver sample_problem("HNO3 -> NO3 + H+, 0.20, 0.00, 0.00, 0.000018");
+mylibrary::IceSolver sample_problem("HNO3->NO3-+H+, 0.534, 0.00, 0.00, 1.8e-04");
 
 
 MyApp::MyApp() { }
@@ -21,10 +21,7 @@ MyApp::MyApp() { }
 void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
-  sample_problem.SolveIceTable("");
-  sample_problem.PopulateEquationData("HNO3->NO3-+H+, 0.20, 0.00, 0.00, 0.000018");
-  double c = sample_problem.SolveQuadratic("-2x^2+-8x+100");
-  std::cout << c;
+  sample_problem.SolveIceTable(sample_problem.GetProblemData());
 }
 
 void MyApp::update() {
@@ -35,9 +32,8 @@ void MyApp::update() {
 void MyApp::draw() {
   cinder::gl::clear();
 
-  ImGui::InputText("Eq","Enter equation", 50);
-  ui::Button("Submit", vec2( 100.0f ));
   std::string eq = sample_problem.GetProblemData();
+  eq += "\n klk ";
   ImGui::Text(eq.c_str());
 }
 

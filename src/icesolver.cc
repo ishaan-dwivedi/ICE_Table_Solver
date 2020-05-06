@@ -29,30 +29,18 @@ using std::string;
     }
 
   void IceSolver::SolveIceTable(std::string given_equation) {
-    // Vector that contains the reactant concentrations
-    reactant_concentrations = {0.20};
+    // Populate class variables used in solving Ice Tables
+    PopulateEquationData(given_equation);
 
-    // Vector that contains the product concentrations
-
-    product_concentrations = {0.0, 0.0};
-
-    double Ka = 0.000018;
-
-    // Can take a shortcut if Ka or Kb is small or big enough
-    if (Ka < 0.0001 || Ka > 0.0001) {
-      double reactants_multiplied = 1;
-      for (size_t i = 0; i < reactant_concentrations.size(); i++) {
-        reactants_multiplied *= reactant_concentrations[i];
-      }
-
-      // Represents the value x shown in the Ice Table, also
-      // the change in concentration
-      double change_concentration = sqrt(Ka * reactants_multiplied);
-
-      std::cout << "Change in concentration: " << change_concentration
-                << std::endl;
-    }
-
+    //
+    string quadratic_to_be_solved;
+    quadratic_to_be_solved += "x^2+";
+    quadratic_to_be_solved += std::to_string(ka_value);
+    quadratic_to_be_solved += "x+-";
+    double arithmetic_store = ka_value * reactant_concentrations[0];
+    quadratic_to_be_solved += std::to_string(arithmetic_store);
+    double useful_root = reactant_concentrations[0] - SolveQuadratic(quadratic_to_be_solved);
+    std::cout << "Change: " << useful_root << std::endl;
   }
 
   std::vector<string> IceSolver::PopulateEquationData(std::string given_data) {
@@ -140,6 +128,6 @@ using std::string;
     std::cout << "Positive root: " << positive_root << std::endl;
     std::cout << "Negative root: " << negative_root << std::endl;
 
-    return negative_root;
+    return positive_root;
   }
 }  // namespace mylibrary
