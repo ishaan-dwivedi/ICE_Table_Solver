@@ -1,6 +1,11 @@
 # Development
 ---
 ---
+- **5/6/20** Added all functionality. An ice table can now be 
+    solved. Added code to help with displaying the solved ice
+    table onto the GUI. Test cases were added to test methods 
+    for the IceSolver class.
+---
 - **5/5/20** Changed a couple helper functions to avoid repetitive
     code. PopulateEquationData() works properly and reads in the
     chemical equation, initial reactant concentrations, initial
