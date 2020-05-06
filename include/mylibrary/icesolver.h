@@ -16,11 +16,11 @@ namespace mylibrary {
 
     public:
       /**
-       * Should return the coefficients that determines the proper factor
-       * of change in concentration from a given equation.
-       * @param given_equation - Given chemical equation
+       * Generate a string with the solved problem in the proper format that
+       * can be displayed on a GUI.
+       * @return - String that represents a displayable solved Ice Table
        */
-      void ParseChangeInConcentrations(std::string given_equation);
+      std::string GenerateDisplay();
 
       /**
        * Should populate

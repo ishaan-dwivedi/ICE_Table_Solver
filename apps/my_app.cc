@@ -13,8 +13,9 @@ namespace myapp {
 
 using cinder::app::KeyEvent;
 
-mylibrary::IceSolver sample_problem("HNO3->NO3-+H+, 0.534, 0.00, 0.00, 1.8e-04");
+mylibrary::IceSolver sample_problem("HNO3:->:NO3-:+:H+, 0.534, 0.00, 0.00, 1.8e-04");
 
+const char* kScreenTitle = "ICE Table Solver";
 
 MyApp::MyApp() { }
 
@@ -32,9 +33,11 @@ void MyApp::update() {
 void MyApp::draw() {
   cinder::gl::clear();
 
-  std::string eq = sample_problem.GetProblemData();
-  eq += "\n klk ";
-  ImGui::Text(eq.c_str());
+  std::string display = sample_problem.GenerateDisplay();
+  ImGui::SetWindowFontScale(1.7);
+  ImGui::Text(kScreenTitle);
+  ImGui::SetWindowFontScale(1.3);
+  ImGui::Text(display.c_str());
 }
 
 void MyApp::keyDown(KeyEvent event) { }
