@@ -5,23 +5,16 @@
 #include <string>
 namespace mylibrary {
   class IceSolver {
-    private: std::string equation;
+    private: std::string problem_data;
 
     // Should read in an equation as well as initial concentrations and a Ka
     // value in order to solve an Ice Table problem.
     public:
-     IceSolver(std::string set_equation) {
-      equation = set_equation;
+     IceSolver(std::string set_problem_data) {
+      problem_data = set_problem_data;
     }
 
     public:
-      /**
-       * Should return the initial reactant and product concentrations
-       * from the given equation.
-       * @param given_equation - Given chemical equation
-       */
-      void ParseConcentrations(std::string given_equation);
-
       /**
        * Should return the coefficients that determines the proper factor
        * of change in concentration from a given equation.
@@ -30,11 +23,11 @@ namespace mylibrary {
       void ParseChangeInConcentrations(std::string given_equation);
 
       /**
-       * Should return the given Ka value from the input string
-       * @param given_equation - String that represents equation data
-       * @return Ka value that is given
+       * Should populate
+       * @param given_data
+       * @return
        */
-      double ParseKaValue(std::string given_equation);
+      std::vector<std::string> PopulateEquationData(std::string given_data);
 
       /**
        * Should return a possible root that satisfies a quadratic equation and
@@ -67,9 +60,9 @@ namespace mylibrary {
        *
        * @param given_equation - equation to solve
        */
-      void Solve(std::string given_equation);
+      void SolveIceTable(std::string given_equation);
 
-      std::string GetEquation();
+      std::string GetProblemData();
 
   };
 

@@ -11,4 +11,6 @@ TEST_CASE("Random sanity test", "[random]") {
   const float random = cinder::randFloat();
   REQUIRE(0. <= random);
   REQUIRE(random <= 1.);
+
+  mylibrary::IceSolver d("");
 }

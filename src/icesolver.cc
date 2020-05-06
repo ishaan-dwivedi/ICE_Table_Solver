@@ -12,17 +12,28 @@ namespace mylibrary {
 
 using std::string;
 
-  std::string IceSolver::GetEquation() {
-    return IceSolver::equation;
-  }
+  // Store the initial reactant concentrations
+  std::vector<double> reactant_concentrations;
 
-  void IceSolver::Solve(std::string given_equation) {
+  // Store the inital product concentrations
+  std::vector<double> product_concentrations;
+
+  // Store the chemical equation
+  std::string equation;
+
+  // Store the given Ka value
+  double ka_value;
+
+  std::string IceSolver::GetProblemData() {
+      return IceSolver::problem_data;
+    }
+
+  void IceSolver::SolveIceTable(std::string given_equation) {
     // Vector that contains the reactant concentrations
-    std::vector<double> reactant_concentrations;
     reactant_concentrations = {0.20};
 
     // Vector that contains the product concentrations
-    std::vector<double> product_concentrations;
+
     product_concentrations = {0.0, 0.0};
 
     double Ka = 0.000018;
@@ -42,6 +53,35 @@ using std::string;
                 << std::endl;
     }
 
+  }
+
+  std::vector<string> IceSolver::PopulateEquationData(std::string given_data) {
+    std::vector<string> equation_data;
+    std::replace(given_data.begin(), given_data.end(), ',',
+                 ' ');
+    std::stringstream ss(given_data);
+    std::string temp_str;
+
+    // Stores each expression into an array
+    while (ss >> temp_str) {
+      equation_data.push_back(temp_str);
+    }
+
+    for (size_t i = 0; i < equation_data.size(); i++) {
+      if (i == 0) {
+        equation = equation_data[i];
+      } else if (i == 1) {
+        reactant_concentrations.push_back(atof(equation_data[i].c_str()));
+      } else if (i == 2) {
+        product_concentrations.push_back(atof(equation_data[i].c_str()));
+      } else if (i == 3) {
+        product_concentrations.push_back(atof(equation_data[i].c_str()));
+      } else if (i == 4) {
+        ka_value = atof(equation_data[i].c_str());
+      }
+    }
+
+    return equation_data;
   }
 
   double IceSolver::SolveQuadratic(std::string given_equation) {
