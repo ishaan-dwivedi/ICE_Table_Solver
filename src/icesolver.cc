@@ -61,8 +61,8 @@ using std::string;
     // Displays the initial reactant and product concentrations
     problem_to_display += "\n \n \nInitial: ";
     for (size_t i = 0; i < initial_reactant_concentrations.size(); i++) {
-      problem_to_display += "     " + std::to_string(initial_reactant_concentrations[i])
-          + "            ";
+      problem_to_display += "     " + std::to_string(
+          initial_reactant_concentrations[i]) + "            ";
     }
     for (size_t i = 0; i < initial_product_concentrations.size(); i++) {
       problem_to_display += std::to_string(initial_product_concentrations[i])
@@ -74,13 +74,14 @@ using std::string;
     problem_to_display += "     -" + std::to_string(change_in_concentration);
     problem_to_display += "           +" +
         std::to_string(change_in_concentration);
-    problem_to_display += "         +" + std::to_string(change_in_concentration);
+    problem_to_display += "         +" + std::to_string(
+        change_in_concentration);
 
     // Displays the final reactant and product concentrations
     problem_to_display += "\n \n \nEquilibrium: ";
     for (size_t i = 0; i < final_reactant_concentrations.size(); i++) {
-      problem_to_display += " " + std::to_string(final_reactant_concentrations[i])
-          + "            ";
+      problem_to_display += " " + std::to_string(
+          final_reactant_concentrations[i]) + "            ";
     }
     for (size_t i = 0; i < final_product_concentrations.size(); i++) {
       problem_to_display += std::to_string(final_product_concentrations[i])
@@ -90,7 +91,7 @@ using std::string;
     return problem_to_display;
   }
 
-  void IceSolver::SolveIceTable(std::string given_equation) {
+  double IceSolver::SolveIceTable(std::string given_equation) {
     // Populate class variables used in solving Ice Tables
     PopulateEquationData(given_equation);
 
@@ -120,11 +121,14 @@ using std::string;
       final_product_concentrations.push_back(new_concentration);
     }
 
-    std::cout << "Change: " << change << std::endl;
+    return change_in_concentration;
   }
 
   std::vector<string> IceSolver::PopulateEquationData(std::string given_data) {
+    // Stores all important equation information such as concentration, Ka, etc
     std::vector<string> equation_data;
+
+    // Handles parsing equation data
     std::replace(given_data.begin(), given_data.end(), ',',
                  ' ');
     std::stringstream ss(given_data);
@@ -135,7 +139,8 @@ using std::string;
       equation_data.push_back(temp_str);
     }
 
-    // Populate class variables
+    // Populate class variables like equation, initial and final
+    // concentrations, etc.
     for (size_t i = 0; i < equation_data.size(); i++) {
       if (i == 0) {
         equation = equation_data[i];
@@ -198,20 +203,13 @@ using std::string;
         'x')).c_str());
     c = atof(equation_expressions[kThirdExpression].c_str());
 
-    std::cout << "A: " << a << std::endl;
-    std::cout << "B: " << b << std::endl;
-    std::cout << "C: " << c << std::endl;
-
-
     // Calculate both roots
     double positive_root = (-b + sqrt((pow((b) , 2) - (4 * a * c))) )
         / (2*a);
     double negative_root = (-b - sqrt((pow((b) , 2) - (4 * a * c))) )
         / (2*a);
 
-    std::cout << "Positive root: " << positive_root << std::endl;
-    std::cout << "Negative root: " << negative_root << std::endl;
-
+    // Return the positive root because that makes sense chemically
     return positive_root;
   }
 }  // namespace mylibrary

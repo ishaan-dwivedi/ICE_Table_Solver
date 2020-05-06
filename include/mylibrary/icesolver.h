@@ -23,9 +23,10 @@ namespace mylibrary {
       std::string GenerateDisplay();
 
       /**
-       * Should populate
-       * @param given_data
-       * @return
+       * Should properly populate the class variables with the given equation
+       * data
+       * @param given_data - String containing equation data
+       * @return - A vector with all the information parsed in its own index
        */
       std::vector<std::string> PopulateEquationData(std::string given_data);
 
@@ -58,9 +59,10 @@ namespace mylibrary {
        *
        * Solve for x to find equilibrium concentrations
        *
-       * @param given_equation - equation to solve
+       * @param given_equation - Equation to solve
+       * @return - The change in concentration
        */
-      void SolveIceTable(std::string given_equation);
+      double SolveIceTable(std::string given_equation);
 
       std::string GetProblemData();
 
