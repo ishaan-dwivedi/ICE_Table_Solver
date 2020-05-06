@@ -33,7 +33,7 @@ void MyApp::setup() {
   ui::initialize();
   ImGui::initialize();
   sample_problem.Solve("");
-  double c = sample_problem.SolveQuadratic("x^2+2.9x+16");
+  double c = sample_problem.SolveQuadratic("x^2+-10x+21");
   std::cout << c;
 }
 

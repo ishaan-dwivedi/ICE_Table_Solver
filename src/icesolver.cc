@@ -45,10 +45,6 @@ using std::string;
   }
 
   double IceSolver::SolveQuadratic(std::string given_equation) {
-    double answer = 0.0;
-    string x = "0.9";
-    double y = atof(x.c_str());
-
     // https://stackoverflow.com/questions/20755140/split-string-by-a-character
     // Handles splitting the equation around the '+' character and stores each
     // expression into a vector of strings
@@ -68,6 +64,7 @@ using std::string;
     const size_t kSecondExpression = 1;
     const size_t kThirdExpression = 2;
     const double kDefaultCoefficient = 1.0;
+
     // Variables to help solve quadratic formula
     // Quadratic Formula: (-b + (b^2 - 4ac)^0.5) / 2a
     double a;
@@ -89,6 +86,20 @@ using std::string;
         'x')).c_str());
     c = atof(equation_expressions[kThirdExpression].c_str());
 
-    return y;
+    std::cout << "A: " << a << std::endl;
+    std::cout << "B: " << b << std::endl;
+    std::cout << "C: " << c << std::endl;
+
+
+
+    double positive_root = (-b + sqrt((pow((b) , 2) - (4 * a * c))) )
+        / (2*a);
+    double negative_root = (-b - sqrt((pow((b) , 2) - (4 * a * c))) )
+        / (2*a);
+
+    std::cout << "Positive root: " << positive_root << std::endl;
+    std::cout << "Negative root: " << negative_root << std::endl;
+
+    return negative_root;
   }
 }  // namespace mylibrary
