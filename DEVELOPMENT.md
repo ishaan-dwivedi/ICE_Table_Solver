@@ -1,6 +1,11 @@
 # Development
 ---
 ---
+- **5/5/20** Changed a couple helper functions to avoid repetitive
+    code. PopulateEquationData() works properly and reads in the
+    chemical equation, initial reactant concentrations, initial
+    product concentrations, and the Ka value.
+---
 - **5/4/20** Finished quadratic formula helper function. Used
     a stringstream to split an equation every time the '+' 
     character appeared. The atof method was used to convert
