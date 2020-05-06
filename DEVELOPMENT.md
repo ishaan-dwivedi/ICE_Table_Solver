@@ -1,6 +1,11 @@
 # Development
 ---
 ---
+- **5/4/20** Finished quadratic formula helper function. Used
+    a stringstream to split an equation every time the '+' 
+    character appeared. The atof method was used to convert
+    from string to double and aided in calculations. 
+---
 - **4/30/20** Added functionality to solve a simple Ice Table
     problem. Also created an IceSolver class that aids in solving
     an Ice Table. Several helper functions are in the IceSolver
@@ -9,14 +14,14 @@
     
     Need to complete the following:
     
-    [ X ] - Solve simple Ice Table
+   [ X ] - Solve simple Ice Table
     
-    [ ] - Be able to solve more complex Ice Tables
+   [ ] - Be able to solve more complex Ice Tables
     
-    [ ] - Use and fill out helper functions that aid in solving
+   [ ] - Use and fill out helper functions that aid in solving
           complex Ice Tables.
           
-    [ ] - Try to fix input from GUI, if not just output a solved
+   [ ] - Try to fix input from GUI, if not just output a solved
           Ice Table.
 ---
 - **4/28/20** Added documentation throughout the project

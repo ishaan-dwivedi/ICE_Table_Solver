@@ -4,13 +4,13 @@
 
 #include <cmath>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
 namespace mylibrary {
 
 using std::string;
-
 
   std::string IceSolver::GetEquation() {
     return IceSolver::equation;
@@ -42,5 +42,53 @@ using std::string;
                 << std::endl;
     }
 
+  }
+
+  double IceSolver::SolveQuadratic(std::string given_equation) {
+    double answer = 0.0;
+    string x = "0.9";
+    double y = atof(x.c_str());
+
+    // https://stackoverflow.com/questions/20755140/split-string-by-a-character
+    // Handles splitting the equation around the '+' character and stores each
+    // expression into a vector of strings
+    std::vector<string> equation_expressions;
+    std::replace(given_equation.begin(), given_equation.end(), '+',
+        ' ');
+    std::stringstream ss(given_equation);
+    std::string temp_str;
+
+    // Stores each expression into an array
+    while (ss >> temp_str) {
+      equation_expressions.push_back(temp_str);
+    }
+
+    // Represents the three indexes in equation_expressions
+    const size_t kFirstExpression = 0;
+    const size_t kSecondExpression = 1;
+    const size_t kThirdExpression = 2;
+    const double kDefaultCoefficient = 1.0;
+    // Variables to help solve quadratic formula
+    // Quadratic Formula: (-b + (b^2 - 4ac)^0.5) / 2a
+    double a;
+    double b;
+    double c;
+
+    // Populates variables a,b,c with actual coefficients from the given
+    // equation
+    if (equation_expressions[kFirstExpression].at(0) == 'x') {
+      a = kDefaultCoefficient;
+    } else {
+      // Set variables to help solve the quadratic equation
+      string first_expression = equation_expressions[kFirstExpression];
+      a = atof(first_expression.substr(0, first_expression.find(
+          'x')).c_str());
+    }
+    string second_expression = equation_expressions[kSecondExpression];
+    b = atof(second_expression.substr(0, second_expression.find(
+        'x')).c_str());
+    c = atof(equation_expressions[kThirdExpression].c_str());
+
+    return y;
   }
 }  // namespace mylibrary
