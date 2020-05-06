@@ -32,7 +32,7 @@ using std::string;
     // Populate class variables used in solving Ice Tables
     PopulateEquationData(given_equation);
 
-    //
+    // Builds quadratic string to be solved
     string quadratic_to_be_solved;
     quadratic_to_be_solved += "x^2+";
     quadratic_to_be_solved += std::to_string(ka_value);

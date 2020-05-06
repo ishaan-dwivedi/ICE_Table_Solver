@@ -7,10 +7,8 @@
 
 #include <catch2/catch.hpp>
 
-TEST_CASE("Random sanity test", "[random]") {
-  const float random = cinder::randFloat();
-  REQUIRE(0. <= random);
-  REQUIRE(random <= 1.);
-
-  mylibrary::IceSolver d("");
+TEST_CASE("Quadratic solver test", "[quadratic]") {
+  mylibrary::IceSolver test_solver("");
+  double positive_root = test_solver.SolveQuadratic("x^2+6x+-27");
+  REQUIRE(positive_root == 3);
 }
