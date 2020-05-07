@@ -24,14 +24,14 @@
     
     Need to complete the following:
     
-   [ X ] - Solve simple Ice Table
+   -[X] Solve simple Ice Table
     
-   [ ] - Be able to solve more complex Ice Tables
+   -[X] Be able to solve more complex Ice Tables
     
-   [ ] - Use and fill out helper functions that aid in solving
+   -[X] Use and fill out helper functions that aid in solving
           complex Ice Tables.
           
-   [ ] - Try to fix input from GUI, if not just output a solved
+   -[X] Try to fix input from GUI, if not just output a solved
           Ice Table.
 ---
 - **4/28/20** Added documentation throughout the project
