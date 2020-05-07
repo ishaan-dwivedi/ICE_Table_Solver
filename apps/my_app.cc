@@ -15,12 +15,12 @@ using cinder::app::KeyEvent;
 
 //mylibrary::IceSolver example_problem(
 //    "HNO3:->:NO3-:+:H+, 0.534, 0.00, 0.00, 1.8e-04");
-mylibrary::IceSolver example_problem(
-    "HC2H3O2:->:C2H3O2-:+:H+, 0.20, 0.00, 0.00, 1.8e-05");
+//mylibrary::IceSolver example_problem(
+//    "HC2H3O2:->:C2H3O2-:+:H+, 0.20, 0.00, 0.00, 1.8e-05");
 //mylibrary::IceSolver example_problem(
 //    "HA:->:A-:+:H+, 0.150, 0.00, 0.00, 1.6e-02");
-//mylibrary::IceSolver example_problem(
-//    "PCl5:->:PCl3:+:Cl2, 1.0, 0.00, 0.00, 0.0211");
+mylibrary::IceSolver example_problem(
+    "PCl5:->:PCl3:+:Cl2, 1.0, 0.00, 0.00, 0.0211");
 
 
 const char* kScreenTitle = "ICE Table Solver";

@@ -1,10 +1,10 @@
 # Development
 ---
 ---
-- **5/6/20** Added all functionality. An ice table can now be 
+- **5/6/20** Added all functionality. An more complex ice table can now be 
     solved. Added code to help with displaying the solved ice
     table onto the GUI. Test cases were added to test methods 
-    for the IceSolver class.
+    for the IceSolver class. Completed README.md.
 ---
 - **5/5/20** Changed a couple helper functions to avoid repetitive
     code. PopulateEquationData() works properly and reads in the
